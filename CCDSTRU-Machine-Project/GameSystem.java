@@ -5,9 +5,9 @@ public class GameSystem
 {
     //determine the role of the applicable sets 
     //research how to add the open and closed variables 
-    private Set<Integer> Open = new HashSet<>();
-    private Set<Integer> Closed = new HashSet<>();
-    private Set<Integer> choice = new HashSet<>();
+    private final Set<Integer> Open = new HashSet<>();
+    private final Set<Integer> Closed = new HashSet<>();
+    private final Set<Integer> choice = new HashSet<>();
     
     //open=n 
     //closed = null 
@@ -16,8 +16,8 @@ public class GameSystem
     private int sum; 
 
     private boolean valid=false; 
-    private boolean over=false; 
-    private boolean win=false; 
+    private final boolean over=false; 
+    private final boolean win=false; 
 
     public GameSystem()
     {
@@ -57,7 +57,7 @@ public class GameSystem
     // check if the total matches the dice sum
     if(total == sum)
     {
-        valid = true;   // Toggle valid
+        valid = true;   // toggle valid
     }
     else
     {
@@ -72,7 +72,7 @@ public class GameSystem
         Open.removeAll(choice);     // open = Open - choice
         Closed.addAll(choice);      // closed = Closed U choice
 
-        valid = true;             // will reset valid back to false
+        valid = false;             // will reset valid back to false
     }
 }
 
@@ -99,7 +99,7 @@ public class GameSystem
             return false;
         }
 
-        Integer[] numbers = set.toArray(new Integer[0]);
+        Integer[] numbers = set.toArray(Integer[]::new);
         for(int i = 0; i < numbers.length; i++)
         {
             Set<Integer> newSet = new HashSet<>(set);

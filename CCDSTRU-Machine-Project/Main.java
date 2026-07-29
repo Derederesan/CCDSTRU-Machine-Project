@@ -5,8 +5,12 @@ public class Main
         GameSystem game = new GameSystem();
 
         game.PlayerRoll();
+        System.out.println(game.getD1() + " + " + game.getD2() + " = " + game.getSum());
 
-        System.out.println("Dice Sum: " + game.getSum());
-        System.out.println("Open Numbers: " + game.getOpen());
+        game.PlayerRoll();
+        System.out.println(game.getD1() + " + " + game.getD2() + " = " + game.getSum());
+
+        game.PlayerRoll();
+        System.out.println(game.getD1() + " + " + game.getD2() + " = " + game.getSum());
     }
 }
